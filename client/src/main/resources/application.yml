@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: client
+
+  config:
+    import:
+      - configserver:http://localhost:8888
+      - classpath:/additional-config.yml
+
+  cloud:
+    config:
+      username: user
+      password: password
+#      import-check:
+#        enabled: false
