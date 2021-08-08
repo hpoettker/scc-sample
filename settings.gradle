@@ -1,0 +1,5 @@
+rootProject.name = 'scc-sample'
+
+include 'client'
+include 'server'
+
