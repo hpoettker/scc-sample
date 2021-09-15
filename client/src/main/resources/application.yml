@@ -3,13 +3,9 @@ spring:
     name: client
 
   config:
-    import:
-      - configserver:http://localhost:8888
-      - classpath:/additional-config.yml
+    import: configserver:http://localhost:8888
 
   cloud:
     config:
       username: user
       password: password
-#      import-check:
-#        enabled: false

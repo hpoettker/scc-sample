@@ -2,7 +2,6 @@ package com.example.client;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -18,14 +17,8 @@ public class ClientApplication {
 	}
 
 	@Bean
-	ApplicationRunner applicationRunner(
-			@Value("${client.config.foo}") String foo,
-			@Value("${client.config.yada}") String yada
-	) {
-		return args -> {
-			LOG.info(foo);
-			LOG.info(yada);
-		};
+	ApplicationRunner applicationRunner(MessageProvider messageProvider) {
+		return args -> LOG.info("The message is: " + messageProvider.getMessage());
 	}
 
 }
